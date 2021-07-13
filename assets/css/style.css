@@ -7,3 +7,13 @@
     --darkGrey: #1E1E24;
     --lightGrey: #444140;
 }
+
+@media screen and (max-width: 768px) {
+    main {
+      flex-direction: column;
+    }
+    }
+
+@media (prefers-color-scheme: dark) {
+     /* all your styles for dark mode here */
+     }
