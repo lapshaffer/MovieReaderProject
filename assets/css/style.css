@@ -7,3 +7,23 @@
     --darkGrey: #1E1E24;
     --lightGrey: #444140;
 }
+
+body {
+    background: #fff;
+    color: #000;
+  }
+  /* Dark mode */
+  body.dark {
+    background: #000;
+    color: #fff;
+  }
+
+@media screen and (max-width: 768px) {
+    main {
+      flex-direction: column;
+    }
+    }
+
+@media (prefers-color-scheme: dark) {
+     /* all your styles for dark mode here */
+     }
