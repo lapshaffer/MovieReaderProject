@@ -9,13 +9,13 @@
 }
 
 body {
-    background: #fff;
-    color: #000;
+    background: var(--grape);
+    color: var(--black);
   }
   /* Dark mode */
   body.dark {
-    background: #000;
-    color: #fff;
+    background: var(--darkGrey);
+    color: var(--raspberry);
   }
 
 @media screen and (max-width: 768px) {
