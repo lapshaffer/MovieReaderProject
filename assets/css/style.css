@@ -8,6 +8,16 @@
     --lightGrey: #444140;
 }
 
+body {
+    background: #fff;
+    color: #000;
+  }
+  /* Dark mode */
+  body.dark {
+    background: #000;
+    color: #fff;
+  }
+
 @media screen and (max-width: 768px) {
     main {
       flex-direction: column;
