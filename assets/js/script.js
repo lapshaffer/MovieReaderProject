@@ -1,3 +1,4 @@
+darkbutton = document.querySelector("#theme-toggle")
 document.addEventListener('DOMContentLoaded', () => {
     var themeStylesheet = document.getElementById('theme');
     var storedTheme = localStorage.getItem('theme');
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-button.addEventListener('click', () => {
+darkbutton.addEventListener('click', () => {
     document.body.classList.toggle('dark')
     localStorage.setItem(
       'theme',
