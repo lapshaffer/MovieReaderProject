@@ -18,6 +18,12 @@ body {
     color: var(--raspberry);
   }
 
+textarea {
+  background-color: var(--white);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: large;
+}
+
 @media screen and (max-width: 768px) {
     main {
       flex-direction: column;
