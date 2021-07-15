@@ -50,8 +50,8 @@ var searchInput = document.querySelector("#search-input");
   searchBtn.addEventListener('click', handleSearchFormSubmit);
 
   function searchApi(movieTitle) {
-    var tmdbUrl = "https://api.themoviedb.org/3/movie?name=" + movieTitle + "/?api_key=" + lisaKeyTMDb;
-    var omdbUrl = "http://www.omdbapi.com/?apikey=" + lisaKeyOMDb + "&" + movieTitle;
+    var tmdbUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + lisaKeyTMDb + "&language=en-US&query=" + movieTitle + "&include_adult=false";
+    var omdbUrl = "http://www.omdbapi.com/?s=" + movieTitle + "&apikey=" + lisaKeyOMDb ;
     
     fetch(tmdbUrl)
       .then(function (response) {
@@ -73,25 +73,24 @@ var searchInput = document.querySelector("#search-input");
 //         console.error(error);
       });
 
-//     fetch(omdbUrl)
-//       .then(function (response) {
-//         if (!response.ok) {
-//           throw response.json();
-//         }
-//         return response.json();
-//       })
-//       .then(function (locRes) {
-//         resultTextEl.textContent = locRes.city.name;
-//         console.log(locRes);
+    fetch(omdbUrl)
+      .then(function (response) {
+        if (!response.ok) {
+          throw response.json();
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
 //         if (locRes.message == "city not found") {
 //           console.log('No results found!');
 //           resultContentEl.innerHTML = '<h3>No results found, search again!</h3>';
 //         } else {
 //           resultContentEl.textContent = '';
 //         }
-//       })
+    //   })
 //       .catch(function (error) {
 //         console.error(error);
-//       });
+      });
   }
 
