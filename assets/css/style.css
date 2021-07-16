@@ -11,12 +11,34 @@
 body {
     background: var(--pinkDarken3);
     color: var(--black);
+    margin: 40px;
   }
   /* Dark mode */
   body.dark {
     background: var(--greyDarken4);
     color: var(--pinkDarken1);
   }
+
+#theme-toggle {
+  float: right;
+  background-color: var(--lightBlueDarken3);
+  border-radius: 10px;
+}
+
+textarea {
+  width: 450px;
+}
+
+h3 {
+  font-size: 30px;
+  color: var(--greyDarken4);
+}
+
+h1 {
+  text-align: center;
+  background-color: var(--greyDarken3);
+  border-radius: 25px;
+}
 
 textarea {
   background-color: var(--white);
