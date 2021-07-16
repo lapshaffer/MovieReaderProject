@@ -3,6 +3,7 @@ var lisaKeyTMDb = "daa128ddea2f71cce78720652940a3fc"
 
 var searchBtn = document.querySelector("#search-btn");
 var searchInput = document.querySelector("#search-input");
+var resultContentEl = document.querySelector('#result-Content');
 
 // darkbutton = document.querySelector("#theme-toggle")
 // document.addEventListener('DOMContentLoaded', () => {
@@ -62,6 +63,38 @@ var searchInput = document.querySelector("#search-input");
       })
       .then(function (data) {
         console.log(data);
+        for(i=0; i<data.results.length; i++){
+          var resultCard = document.createElement('div');
+          var resultBody = document.createElement('div');
+          resultCard.append(resultBody);
+
+          var title = data.results[i].title;
+          console.log(title + "title");
+          var titleEl = document.createElement('h2');
+          titleEl.innerHTML =  
+          '<strong>Title:</strong> ' + title;
+
+          var overview = data.results[i].overview;
+          console.log(overview + "overview");
+          var overviewEl = document.createElement('h3');
+          overviewEl.innerHTML = 
+          '<strong>Overview</strong> ' + overview;
+
+          var score = data.results[i].vote_average;
+          console.log(score + " score");
+          var scoreEl = document.createElement('h3');
+          scoreEl.innerHTML =  
+          '<strong>Movie Score:</strong> ' + score;
+
+          var release = data.results[i].release_date;
+          console.log(release + " release");
+          var releaseEl = document.createElement('h3');
+          releaseEl.innerHTML = 
+          '<strong>Release Date:</strong> ' + release;
+
+          resultBody.append(titleEl, releaseEl, scoreEl, overviewEl);
+          resultContentEl.append(resultCard);
+        }
 //         if (locRes.message == "city not found") {
 //           console.log('No results found!');
 //           resultContentEl.innerHTML = '<h3>No results found, search again!</h3>';
