@@ -63,6 +63,7 @@ var resultContentEl = document.querySelector('#result-Content');
       })
       .then(function (data) {
         console.log(data);
+        resultContentEl.innerHTML = "";
         for(i=0; i<data.results.length; i++){
           var resultCard = document.createElement('div');
           var resultBody = document.createElement('div');
@@ -92,7 +93,16 @@ var resultContentEl = document.querySelector('#result-Content');
           releaseEl.innerHTML = 
           '<strong>Release Date:</strong> ' + release;
 
-          resultBody.append(titleEl, releaseEl, scoreEl, overviewEl);
+
+
+
+          var imgElement = document.createElement("img");
+          var icon = data.results[i].poster_path;
+          var iconurl = "https://image.tmdb.org/t/p/w200" + icon;
+          imgElement.src = iconurl;
+
+
+          resultBody.append(titleEl, imgElement, releaseEl, scoreEl, overviewEl);
           resultContentEl.append(resultCard);
         }
 //         if (locRes.message == "city not found") {
