@@ -6,35 +6,18 @@ var searchBtn = document.querySelector("#search-btn");
 var searchInput = document.querySelector("#search-input");
 var resultContentEl = document.querySelector('#result-Content');
 var darkbutton = document.querySelector("#theme-toggle")
- document.addEventListener('DOMContentLoaded', () => {
-    //  var themeStylesheet = document.getElementById('theme');
-    //  var storedTheme = localStorage.getItem('theme');
-    //  if(storedTheme){
-    //     //  themeStylesheet.href = storedTheme;
-    //  }
-    //  const themeToggle = document.getElementById('theme-toggle');
-    //  themeToggle.addEventListener('click', () => {
-    //      if(themeStylesheet.href.includes('light')){
-    //          themeStylesheet.href = 'dark-theme.css';
-    //          themeToggle.innerText = 'Switch to light mode';
-    //      } else {
-    //          themeStylesheet.href = 'light-theme.css';
-    //          themeToggle.innerText = 'Switch to dark mode';
-    //      }
-    //      localStorage.setItem('theme',themeStylesheet.href)
-    //  })
+document.addEventListener('DOMContentLoaded', () => {
 
-
- darkbutton.addEventListener('click', () => {
-     document.body.classList.toggle('dark')
-     localStorage.setItem(
-       'theme',
-       document.body.classList.contains('dark') ? 'dark' : 'light'
-     )
-   })
-   if (localStorage.getItem('theme') === 'dark') {
-     document.body.classList.add('dark')
-   }
+  darkbutton.addEventListener('click', () => {
+    document.body.classList.toggle('dark')
+    localStorage.setItem(
+      'theme',
+      document.body.classList.contains('dark') ? 'dark' : 'light'
+    )
+  })
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark')
+  }
 
   // Calling OMDb and TMDb
   function handleSearchFormSubmit(event) {
@@ -44,7 +27,6 @@ var darkbutton = document.querySelector("#theme-toggle")
       console.error('You need a search input value!');
       return;
     }
-    // addToRecent(searchInputVal);
     searchApi(movieTitle);
   }
 
@@ -52,8 +34,8 @@ var darkbutton = document.querySelector("#theme-toggle")
 
   function searchApi(movieTitle) {
     var tmdbUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + lisaKeyTMDb + "&language=en-US&query=" + movieTitle + "&include_adult=false";
-    var omdbUrl = "http://www.omdbapi.com/?s=" + movieTitle + "&apikey=" + lisaKeyOMDb ;
-    
+    var omdbUrl = "http://www.omdbapi.com/?s=" + movieTitle + "&apikey=" + lisaKeyOMDb;
+    // var 
     fetch(tmdbUrl)
       .then(function (response) {
         if (!response.ok) {
@@ -64,32 +46,30 @@ var darkbutton = document.querySelector("#theme-toggle")
       .then(function (data) {
         console.log(data);
         resultContentEl.innerHTML = "";
-        for(i=0; i<data.results.length; i++){
+        for (i = 0; i < data.results.length; i++) {
           var resultCard = document.createElement('div');
           var resultBody = document.createElement('div');
           resultCard.append(resultBody);
 
           var title = data.results[i].title;
           var titleEl = document.createElement('h2');
-          titleEl.innerHTML =  
-          '<strong>Title:</strong> ' + title;
+          titleEl.innerHTML =
+            '<strong>Title:</strong> ' + title;
 
           var overview = data.results[i].overview;
           var overviewEl = document.createElement('h3');
-          overviewEl.innerHTML = 
-          '<strong>Overview</strong> ' + overview;
+          overviewEl.innerHTML =
+            '<strong>Overview</strong> ' + overview;
 
           var score = data.results[i].vote_average;
           var scoreEl = document.createElement('h3');
-          scoreEl.innerHTML =  
-          '<strong>Movie Score:</strong> ' + score;
+          scoreEl.innerHTML =
+            '<strong>Movie Score:</strong> ' + score;
 
           var release = data.results[i].release_date;
           var releaseEl = document.createElement('h3');
-          releaseEl.innerHTML = 
-          '<strong>Release Date:</strong> ' + release;
-
-
+          releaseEl.innerHTML =
+            '<strong>Release Date:</strong> ' + release;
 
 
           var imgElement = document.createElement("img");
@@ -101,35 +81,74 @@ var darkbutton = document.querySelector("#theme-toggle")
           resultBody.append(titleEl, imgElement, releaseEl, scoreEl, overviewEl);
           resultContentEl.append(resultCard);
         }
-//         if (locRes.message == "city not found") {
-//           console.log('No results found!');
-//           resultContentEl.innerHTML = '<h3>No results found, search again!</h3>';
-//         } else {
-//           resultContentEl.textContent = '';
-//         }
-//       })
-//       .catch(function (error) {
-//         console.error(error);
       });
 
-    fetch(omdbUrl)
-      .then(function (response) {
-        if (!response.ok) {
-          throw response.json();
-        }
-        return response.json();
+    var latitude;
+    var longitude;
+    navigator.geolocation.getCurrentPosition((position) => {
+
+      latitude = position.coords.latitude.toFixed(3);
+      longitude = position.coords.longitude.toFixed(3);
+      console.log(`${position.coords.latitude};${position.coords.longitude}`)
+
+      console.log(`HERE - ${latitude};${longitude}`);
+      //   var headers = new Headers({
+      //     "api-version": "v200",
+      //     "Authorization": "Basic VFJJTF82X1hYOlFxYjRvUzhGbVlwVw==",
+      //     "x-api-key": "SVt8eQZ41o9XOTJqUaG8m1OhgiXP2Q0l3NDDj1sm",
+      //     "device-datetime": new Date().toISOString(),
+      //     "territory": "XX",
+      //     "client": "TRIL_6",
+      //     "geolocation" : `${latitude};${longitude}`,
+      //     "origin": "https://app.cors.bridged.cc"
+      //   });
+      //   var gluUrl = "https://cors.bridged.cc/https://api-gate2.movieglu.com/cinemasNearby/";
+      // var dateTime = moment().toISOString();
+      // console.log(dateTime);
+      // fetch(gluUrl, {"headers": headers, "redirect": "follow"})
+      //   .then(function (response) {
+      //     console.log(response);
+      //     if (!response.ok) {
+      //       throw response.json();
+      //     }
+      //     return response.json();
+      //   })
+      //   .then(function (data) {
+      //     console.log(data);
+      //   });
+      console.log(`${latitude};${longitude}`,)
+      fetch("https://cors.bridged.cc/https://api-gate2.movieglu.com/cinemasNearby/", {
+        headers: {
+          accept: "application/json, text/plain, */*",
+          "accept-language": "en-US,en;q=0.9",
+          "api-version": "v200",
+          authorization: "Basic VFJJTF82OkNuWVNoSHBpSUZucg==",
+          client: "TRIL_6",
+          "device-datetime": "2021-07-17T16:43:47.524Z",
+          geolocation: `${latitude};${longitude}`,
+          origin: "https://app.cors.bridged.cc/",
+          "sec-ch-ua":
+            '" Not;A Brand";v="99", "Google Chrome";v="91", "Chromium";v="91"',
+          "sec-ch-ua-mobile": "?0",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-site",
+          territory: "US",
+          "x-api-key": "UCq4xdlliA862m2SzWdvC5LNaHjskJnja8PhhMQx",
+        },
+        referrer: "https://app.cors.bridged.cc/",
+        referrerPolicy: "strict-origin-when-cross-origin",
+        body: null,
+        method: "GET",
       })
-      .then(function (data) {
-        console.log(data);
-//         if (locRes.message == "city not found") {
-//           console.log('No results found!');
-//           resultContentEl.innerHTML = '<h3>No results found, search again!</h3>';
-//         } else {
-//           resultContentEl.textContent = '';
-//         }
-    //   })
-//       .catch(function (error) {
-//         console.error(error);
-      });
+        .then(function(data) {
+          return data.json();
+        })
+        .then((response) => console.log(response));
+
+    })
+
   }
- })
+})
+
+
