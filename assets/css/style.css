@@ -36,11 +36,18 @@ h1 {
   border-radius: 25px;
 }
 
-textarea {
+#search-input {
   width: 450px;
   background-color: var(--white);
   font-family: 'Courier New', Courier, monospace;
   font-size: large;
+}
+
+#cinema-input {
+  width: 250px;
+  background-color: var(--white);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
 }
 
 #result-Content div {
