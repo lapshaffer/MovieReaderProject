@@ -11,33 +11,47 @@
 </head>
 <body>
     <!-- Main search section -->
-    <div class="row">
+    <div class="row welcome center-align">
         <div class="col s12">
-            <button id="theme-toggle">Switch to dark mode</button>
+            <button class="btn" id="theme-toggle">Toggle dark mode</button>
                 <h1>Welcome to Movie Reader</h1>
+                <p>A one-stop site to search for movies, reviews and more</p>
         </div>
     </div>
     <div class="row">
         <!--Cinema Search Section-->
-        <div class="col s3">
-            <h3>Cinema Search</h3>
-            <textarea id="cinema-input" placeholder="Search for your closest cinema"></textarea>
-            <button id="cinema-button">Search</button>
+        <div class="col s3 search-section">
+            <div class="center-align">
+                <h3>Cinema Search</h3>
+                <p class="search-section-text">Enter your city and find your closest local cinemas</p>
+                <div class="input-field">
+                    <textarea id="cinema-input" class="materialize-textarea" placeholder="Search for your nearest cinema"></textarea>
+                </div>
+                <button class="btn" id="cinema-btn">Search</button>
+            </div>
 
             <!--Cinema Search Results-->
             <div id="cinema-content">
             </div>
         </div>
         <!--Movie Search Section-->
-        <div class="col s9">
-            <h3>Movie Search</h3>
-            <textarea id="search-input" placeholder="Search for a movie!"></textarea> <!-- searchbar --> 
-            <button id="search-btn">Search!</button> <!-- submit search button -->
-        
+        <div class="col s8">
+            <div class="center-align search-section">
+                <h3>Movie Search</h3>
+                <p class="search-section-text">Have a movie in mind? Search the title to pull up a list of films</p>
+                <div class="input-field">
+                    <textarea id="search-input" class="materialize-textarea" placeholder="Search for a movie!"></textarea> <!-- searchbar --> 
+                </div>
+                <button class="btn" id="search-btn">Search!</button> <!-- submit search button -->
+            </div>
             <!--Movie Search Results -->
-            <div id=result-Content> 
+            <div id="result-Content"> 
             </div>
         </div>
+    </div>
+
+    <div id="footer" class="center-align">
+        <h5>&#169 2021, Lisa Shaffer, Dominick Simone, Jonathan Whiting and Zack Zaleski</h5>
     </div>
     <script src="./assets/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

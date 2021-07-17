@@ -9,35 +9,65 @@
 }
 
 body {
-    background: var(--pinkDarken3);
+    background-image: linear-gradient(var(--pinkDarken1), var(--pinkDarken3), var(--pinkDarken1));
     color: var(--black);
     margin: 40px;
   }
   /* Dark mode */
   body.dark {
     background: var(--greyDarken4);
-    color: var(--pinkDarken1);
+    color: var(--lightBlueDarken3);
   }
+
+.welcome p {
+  font-size: 15pt;
+  font-weight: bolder;
+}
 
 #theme-toggle {
   float: right;
+}
+
+#cinema-btn {
+  margin-bottom: 15px;
+  width: 150px;
+}
+
+#search-btn {
+  width: 150px;
+}
+
+.btn {
   background-color: var(--lightBlueDarken3);
   border-radius: 10px;
 }
 
 h3 {
   font-size: 30px;
-  color: var(--greyDarken4);
+  color: var(--lightBlueDarken3);
 }
 
 h1 {
   text-align: center;
   background-color: var(--greyDarken3);
   border-radius: 25px;
+  padding: 10px 0;
+}
+
+.search-section-text {
+  font-size: 15pt;
+  color: var(--white);
+}
+
+.search-section {
+  background-color: var(--greyDarken4);
+  margin: 0 50px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 #search-input {
-  width: 450px;
+  width: 350px;
   background-color: var(--white);
   font-family: 'Courier New', Courier, monospace;
   font-size: large;
@@ -47,12 +77,23 @@ h1 {
   width: 250px;
   background-color: var(--white);
   font-family: 'Courier New', Courier, monospace;
-  font-size: medium;
+  font-size: 10pt;
 }
 
 #result-Content div {
-  background-color: var(--white);
+  background-color: var(--greyDarken3);
+  padding: 5px;
   margin: 10px;
+  border-radius: 10px;
+}
+
+#result-Content h3 {
+  color: var(--black);
+  line-height: 150%;
+}
+
+#footer {
+  padding-top: 1px;
 }
 
 @media screen and (max-width: 768px) {
@@ -61,6 +102,8 @@ h1 {
     }
     }
 
-@media (prefers-color-scheme: dark) {
-     /* all your styles for dark mode here */
+/* @media (prefers-color-scheme: dark) {
+     #result-Content div {
+      background-color: var(--pinkDarken3);
      }
+     } */
