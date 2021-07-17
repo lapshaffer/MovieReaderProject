@@ -11,26 +11,26 @@
 </head>
 <body>
     <!-- Main search section -->
-    <button id="theme-toggle">Switch to dark mode</button>
-    <div>
-        <h1>Welcome to Movie Reader</h1>
-        <textarea id="search-input" placeholder="search for a movie!"></textarea> <!-- searchbar --> 
-        <button id="search-btn">Search!</button> <!-- submit search button -->
-    </div>
-
-    <!-- <button></button> if we get to backlog this is the button to bring down the search history section --> 
-    <!-- Search history section -->
-    <aside>
-        <h3>Search History</h3>
-        <div id="searchHistory">
-
+    <div class="row">
+        <div class="col s12">
+            <button id="theme-toggle">Switch to dark mode</button>
+                <h1>Welcome to Movie Reader</h1>
         </div>
-    </aside>
-
-    <!-- Trending Carousel -->
-
-    <div id=result-Content>
+    </div>
+    <div class="row">
+        <!--Cinema Search-->
+        <div class="col s3">
+            <h3>Cinema Search</h3>
+        </div>
+        <div class="col s9">
+            <!--Search Section-->
+            <textarea id="search-input" placeholder="search for a movie!"></textarea> <!-- searchbar --> 
+            <button id="search-btn">Search!</button> <!-- submit search button -->
         
+            <!-- Results -->
+            <div id=result-Content> 
+            </div>
+        </div>
     </div>
     <script src="./assets/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
