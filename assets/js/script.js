@@ -4,37 +4,36 @@ var lisaKeyTMDb = "daa128ddea2f71cce78720652940a3fc"
 var searchBtn = document.querySelector("#search-btn");
 var searchInput = document.querySelector("#search-input");
 var resultContentEl = document.querySelector('#result-Content');
+var darkbutton = document.querySelector("#theme-toggle")
+ document.addEventListener('DOMContentLoaded', () => {
+    //  var themeStylesheet = document.getElementById('theme');
+    //  var storedTheme = localStorage.getItem('theme');
+    //  if(storedTheme){
+    //     //  themeStylesheet.href = storedTheme;
+    //  }
+    //  const themeToggle = document.getElementById('theme-toggle');
+    //  themeToggle.addEventListener('click', () => {
+    //      if(themeStylesheet.href.includes('light')){
+    //          themeStylesheet.href = 'dark-theme.css';
+    //          themeToggle.innerText = 'Switch to light mode';
+    //      } else {
+    //          themeStylesheet.href = 'light-theme.css';
+    //          themeToggle.innerText = 'Switch to dark mode';
+    //      }
+    //      localStorage.setItem('theme',themeStylesheet.href)
+    //  })
 
-// darkbutton = document.querySelector("#theme-toggle")
-// document.addEventListener('DOMContentLoaded', () => {
-//     var themeStylesheet = document.getElementById('theme');
-//     var storedTheme = localStorage.getItem('theme');
-//     if(storedTheme){
-//         themeStylesheet.href = storedTheme;
-//     }
-//     const themeToggle = document.getElementById('theme-toggle');
-//     themeToggle.addEventListener('click', () => {
-//         if(themeStylesheet.href.includes('light')){
-//             themeStylesheet.href = 'dark-theme.css';
-//             themeToggle.innerText = 'Switch to light mode';
-//         } else {
-//             themeStylesheet.href = 'light-theme.css';
-//             themeToggle.innerText = 'Switch to dark mode';
-//         }
-//         localStorage.setItem('theme',themeStylesheet.href)
-//     })
-// })
 
-// darkbutton.addEventListener('click', () => {
-//     document.body.classList.toggle('dark')
-//     localStorage.setItem(
-//       'theme',
-//       document.body.classList.contains('dark') ? 'dark' : 'light'
-//     )
-//   })
-//   if (localStorage.getItem('theme') === 'dark') {
-//     document.body.classList.add('dark')
-//   }
+ darkbutton.addEventListener('click', () => {
+     document.body.classList.toggle('dark')
+     localStorage.setItem(
+       'theme',
+       document.body.classList.contains('dark') ? 'dark' : 'light'
+     )
+   })
+   if (localStorage.getItem('theme') === 'dark') {
+     document.body.classList.add('dark')
+   }
 
   // Calling OMDb and TMDb
   function handleSearchFormSubmit(event) {
@@ -70,25 +69,21 @@ var resultContentEl = document.querySelector('#result-Content');
           resultCard.append(resultBody);
 
           var title = data.results[i].title;
-          console.log(title + "title");
           var titleEl = document.createElement('h2');
           titleEl.innerHTML =  
           '<strong>Title:</strong> ' + title;
 
           var overview = data.results[i].overview;
-          console.log(overview + "overview");
           var overviewEl = document.createElement('h3');
           overviewEl.innerHTML = 
           '<strong>Overview</strong> ' + overview;
 
           var score = data.results[i].vote_average;
-          console.log(score + " score");
           var scoreEl = document.createElement('h3');
           scoreEl.innerHTML =  
           '<strong>Movie Score:</strong> ' + score;
 
           var release = data.results[i].release_date;
-          console.log(release + " release");
           var releaseEl = document.createElement('h3');
           releaseEl.innerHTML = 
           '<strong>Release Date:</strong> ' + release;
@@ -136,4 +131,4 @@ var resultContentEl = document.querySelector('#result-Content');
 //         console.error(error);
       });
   }
-
+ })
