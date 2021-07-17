@@ -18,21 +18,31 @@
         </div>
     </div>
     <div class="row">
-        <!--Cinema Search-->
+        <!--Cinema Search Section-->
         <div class="col s3">
             <h3>Cinema Search</h3>
+            <textarea id="cinema-input" placeholder="Search for your closest cinema"></textarea>
+            <button id="cinema-button">Search</button>
+
+            <!--Cinema Search Results-->
+            <div id="cinema-content">
+            </div>
         </div>
+        <!--Movie Search Section-->
         <div class="col s9">
-            <!--Search Section-->
-            <textarea id="search-input" placeholder="search for a movie!"></textarea> <!-- searchbar --> 
+            <h3>Movie Search</h3>
+            <textarea id="search-input" placeholder="Search for a movie!"></textarea> <!-- searchbar --> 
             <button id="search-btn">Search!</button> <!-- submit search button -->
         
-            <!-- Results -->
+            <!--Movie Search Results -->
             <div id=result-Content> 
             </div>
         </div>
     </div>
     <script src="./assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
