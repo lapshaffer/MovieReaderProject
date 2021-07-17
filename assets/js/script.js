@@ -1,5 +1,6 @@
 var lisaKeyOMDb = "1a8f67fd"
 var lisaKeyTMDb = "daa128ddea2f71cce78720652940a3fc"
+var lisaKeyMovieGlu = "PQQlPe72DYaxrGIM8gzok6HV1n5KrZP04nSKjnWu"
 
 var searchBtn = document.querySelector("#search-btn");
 var searchInput = document.querySelector("#search-input");
