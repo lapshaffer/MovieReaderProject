@@ -94,31 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
       longitude = position.coords.longitude.toFixed(3);
       console.log(`${position.coords.latitude};${position.coords.longitude}`)
 
-    //   console.log(`HERE - ${latitude};${longitude}`);
-    //   //   var headers = new Headers({
-    //   //     "api-version": "v200",
-    //   //     "Authorization": "Basic VFJJTF82X1hYOlFxYjRvUzhGbVlwVw==",
-    //   //     "x-api-key": "SVt8eQZ41o9XOTJqUaG8m1OhgiXP2Q0l3NDDj1sm",
-    //   //     "device-datetime": new Date().toISOString(),
-    //   //     "territory": "XX",
-    //   //     "client": "TRIL_6",
-    //   //     "geolocation" : `${latitude};${longitude}`,
-    //   //     "origin": "https://app.cors.bridged.cc"
-    //   //   });
-    //   //   var gluUrl = "https://cors.bridged.cc/https://api-gate2.movieglu.com/cinemasNearby/";
-    //   // var dateTime = moment().toISOString();
-    //   // console.log(dateTime);
-    //   // fetch(gluUrl, {"headers": headers, "redirect": "follow"})
-    //   //   .then(function (response) {
-    //   //     console.log(response);
-    //   //     if (!response.ok) {
-    //   //       throw response.json();
-    //   //     }
-    //   //     return response.json();
-    //   //   })
-    //   //   .then(function (data) {
-    //   //     console.log(data);
-    //   //   });
       console.log(`${latitude};${longitude}`,)
       fetch("https://cors.bridged.cc/https://api-gate2.movieglu.com/cinemasNearby/", {
         headers: {
