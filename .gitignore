@@ -9,3 +9,18 @@ eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYWExMjhkZGVhMmY3MWNjZTc4NzIwNjUyOTQwYTNmYyIsInN
 Lisa's OMDB key: 1a8f67fd
 
 Lisa's movieGlu key: PQQlPe72DYaxrGIM8gzok6HV1n5KrZP04nSKjnWu
+
+
+Zaleski MovieGlu APIKey and auth
+
+client:	TRIL_6
+x-api-key:	UCq4xdlliA862m2SzWdvC5LNaHjskJnja8PhhMQx
+authorization:	Basic VFJJTF82OkNuWVNoSHBpSUZucg==
+territory:	US
+api-version:	v200
+geolocation:	Your location in format lat;lng, e.g. 52.47;-1.93
+device-datetime:	yyyy-mm-ddThh:mm:ss.sssZ (ISO 8601 format, e.g. 2018-09-14T08:30:17.360Z)
+
+**Please Note***
+***Movie glu api keys have a call limit of 75, if they arent working please shift the key to another listed movieglu x-api-key***
+***also need to switch the authorization code to the one corresponding with the x-api-key***
