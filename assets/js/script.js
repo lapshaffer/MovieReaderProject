@@ -5,7 +5,9 @@ var lisaKeyMovieGlu = "PQQlPe72DYaxrGIM8gzok6HV1n5KrZP04nSKjnWu"
 var searchBtn = document.querySelector("#search-btn");
 var searchInput = document.querySelector("#search-input");
 var resultContentEl = document.querySelector('#result-Content');
-var darkbutton = document.querySelector("#theme-toggle")
+var boredContainer = document.querySelector('#bored-result');
+var boredBtn = document.querySelector('#bored-btn');
+var darkbutton = document.querySelector("#theme-toggle");
 document.addEventListener('DOMContentLoaded', () => {
 
   darkbutton.addEventListener('click', () => {
@@ -83,72 +85,93 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-    var latitude;
-    var longitude;
-    navigator.geolocation.getCurrentPosition((position) => {
+    // var latitude;
+    // var longitude;
+    // navigator.geolocation.getCurrentPosition((position) => {
 
-      latitude = position.coords.latitude.toFixed(3);
-      longitude = position.coords.longitude.toFixed(3);
-      console.log(`${position.coords.latitude};${position.coords.longitude}`)
+    //   latitude = position.coords.latitude.toFixed(3);
+    //   longitude = position.coords.longitude.toFixed(3);
+    //   console.log(`${position.coords.latitude};${position.coords.longitude}`)
 
-      console.log(`HERE - ${latitude};${longitude}`);
-      //   var headers = new Headers({
-      //     "api-version": "v200",
-      //     "Authorization": "Basic VFJJTF82X1hYOlFxYjRvUzhGbVlwVw==",
-      //     "x-api-key": "SVt8eQZ41o9XOTJqUaG8m1OhgiXP2Q0l3NDDj1sm",
-      //     "device-datetime": new Date().toISOString(),
-      //     "territory": "XX",
-      //     "client": "TRIL_6",
-      //     "geolocation" : `${latitude};${longitude}`,
-      //     "origin": "https://app.cors.bridged.cc"
-      //   });
-      //   var gluUrl = "https://cors.bridged.cc/https://api-gate2.movieglu.com/cinemasNearby/";
-      // var dateTime = moment().toISOString();
-      // console.log(dateTime);
-      // fetch(gluUrl, {"headers": headers, "redirect": "follow"})
-      //   .then(function (response) {
-      //     console.log(response);
-      //     if (!response.ok) {
-      //       throw response.json();
-      //     }
-      //     return response.json();
-      //   })
-      //   .then(function (data) {
-      //     console.log(data);
-      //   });
-      console.log(`${latitude};${longitude}`,)
-      fetch("https://cors.bridged.cc/https://api-gate2.movieglu.com/cinemasNearby/", {
-        headers: {
-          accept: "application/json, text/plain, */*",
-          "accept-language": "en-US,en;q=0.9",
-          "api-version": "v200",
-          authorization: "Basic VFJJTF82OkNuWVNoSHBpSUZucg==",
-          client: "TRIL_6",
-          "device-datetime": "2021-07-17T16:43:47.524Z",
-          geolocation: `${latitude};${longitude}`,
-          origin: "https://app.cors.bridged.cc/",
-          "sec-ch-ua":
-            '" Not;A Brand";v="99", "Google Chrome";v="91", "Chromium";v="91"',
-          "sec-ch-ua-mobile": "?0",
-          "sec-fetch-dest": "empty",
-          "sec-fetch-mode": "cors",
-          "sec-fetch-site": "same-site",
-          territory: "US",
-          "x-api-key": "UCq4xdlliA862m2SzWdvC5LNaHjskJnja8PhhMQx",
-        },
-        referrer: "https://app.cors.bridged.cc/",
-        referrerPolicy: "strict-origin-when-cross-origin",
-        body: null,
-        method: "GET",
-      })
-        .then(function(data) {
-          return data.json();
-        })
-        .then((response) => console.log(response));
+    //   console.log(`HERE - ${latitude};${longitude}`);
+    //   //   var headers = new Headers({
+    //   //     "api-version": "v200",
+    //   //     "Authorization": "Basic VFJJTF82X1hYOlFxYjRvUzhGbVlwVw==",
+    //   //     "x-api-key": "SVt8eQZ41o9XOTJqUaG8m1OhgiXP2Q0l3NDDj1sm",
+    //   //     "device-datetime": new Date().toISOString(),
+    //   //     "territory": "XX",
+    //   //     "client": "TRIL_6",
+    //   //     "geolocation" : `${latitude};${longitude}`,
+    //   //     "origin": "https://app.cors.bridged.cc"
+    //   //   });
+    //   //   var gluUrl = "https://cors.bridged.cc/https://api-gate2.movieglu.com/cinemasNearby/";
+    //   // var dateTime = moment().toISOString();
+    //   // console.log(dateTime);
+    //   // fetch(gluUrl, {"headers": headers, "redirect": "follow"})
+    //   //   .then(function (response) {
+    //   //     console.log(response);
+    //   //     if (!response.ok) {
+    //   //       throw response.json();
+    //   //     }
+    //   //     return response.json();
+    //   //   })
+    //   //   .then(function (data) {
+    //   //     console.log(data);
+    //   //   });
+    //   console.log(`${latitude};${longitude}`,)
+    //   fetch("https://cors.bridged.cc/https://api-gate2.movieglu.com/cinemasNearby/", {
+    //     headers: {
+    //       accept: "application/json, text/plain, */*",
+    //       "accept-language": "en-US,en;q=0.9",
+    //       "api-version": "v200",
+    //       authorization: "Basic VFJJTF82OkNuWVNoSHBpSUZucg==",
+    //       client: "TRIL_6",
+    //       "device-datetime": "2021-07-17T16:43:47.524Z",
+    //       geolocation: `${latitude};${longitude}`,
+    //       origin: "https://app.cors.bridged.cc/",
+    //       "sec-ch-ua":
+    //         '" Not;A Brand";v="99", "Google Chrome";v="91", "Chromium";v="91"',
+    //       "sec-ch-ua-mobile": "?0",
+    //       "sec-fetch-dest": "empty",
+    //       "sec-fetch-mode": "cors",
+    //       "sec-fetch-site": "same-site",
+    //       territory: "US",
+    //       "x-api-key": "UCq4xdlliA862m2SzWdvC5LNaHjskJnja8PhhMQx",
+    //     },
+    //     referrer: "https://app.cors.bridged.cc/",
+    //     referrerPolicy: "strict-origin-when-cross-origin",
+    //     body: null,
+    //     method: "GET",
+    //   })
+    //     .then(function(data) {
+    //       return data.json();
+    //     })
+    //     .then((response) => console.log(response));
 
-    })
+//     })
 
-  }
+//   }
+}
 })
 
+function boredAPI() {
+  var boredURL = "http://www.boredapi.com/api/activity/"
+  
+  fetch(boredURL)
+    .then(function (response) {
+      if (!response.ok) {
+        throw response.json();
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
 
+      var boredResult = document.createElement('p');
+      var boredActivity = data.activity;
+
+      boredResult.innerHTML = boredActivity + "!";
+      boredContainer.append(boredResult);
+    })}
+
+    boredBtn.addEventListener('click', boredAPI);

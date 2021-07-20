@@ -37,6 +37,11 @@ body {
   width: 150px;
 }
 
+#bored-btn {
+  margin-bottom: 15px;
+  width: 150px;
+}
+
 .btn {
   background-color: var(--lightBlueDarken3);
   border-radius: 10px;
@@ -64,6 +69,14 @@ h1 {
   margin: 0 50px;
   padding: 15px;
   border-radius: 10px;
+}
+
+#bored-section {
+  margin-top: 30px;
+}
+
+#bored-section p {
+  color: var(--white);
 }
 
 #search-input {
