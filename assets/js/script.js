@@ -6,6 +6,7 @@ var searchBtn = document.querySelector("#search-btn");
 var searchInput = document.querySelector("#search-input");
 var resultContentEl = document.querySelector('#result-Content');
 var boredContainer = document.querySelector('#bored-result');
+var cinemasContentEl = document.querySelector('#cinema-content');
 var boredBtn = document.querySelector('#bored-btn');
 var darkbutton = document.querySelector("#theme-toggle");
 document.addEventListener('DOMContentLoaded', () => {
@@ -85,13 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-    // var latitude;
-    // var longitude;
-    // navigator.geolocation.getCurrentPosition((position) => {
+    var latitude;
+    var longitude;
+    navigator.geolocation.getCurrentPosition((position) => {
 
-    //   latitude = position.coords.latitude.toFixed(3);
-    //   longitude = position.coords.longitude.toFixed(3);
-    //   console.log(`${position.coords.latitude};${position.coords.longitude}`)
+      latitude = position.coords.latitude.toFixed(3);
+      longitude = position.coords.longitude.toFixed(3);
+      console.log(`${position.coords.latitude};${position.coords.longitude}`)
 
     //   console.log(`HERE - ${latitude};${longitude}`);
     //   //   var headers = new Headers({
@@ -118,37 +119,58 @@ document.addEventListener('DOMContentLoaded', () => {
     //   //   .then(function (data) {
     //   //     console.log(data);
     //   //   });
-    //   console.log(`${latitude};${longitude}`,)
-    //   fetch("https://cors.bridged.cc/https://api-gate2.movieglu.com/cinemasNearby/", {
-    //     headers: {
-    //       accept: "application/json, text/plain, */*",
-    //       "accept-language": "en-US,en;q=0.9",
-    //       "api-version": "v200",
-    //       authorization: "Basic VFJJTF82OkNuWVNoSHBpSUZucg==",
-    //       client: "TRIL_6",
-    //       "device-datetime": "2021-07-17T16:43:47.524Z",
-    //       geolocation: `${latitude};${longitude}`,
-    //       origin: "https://app.cors.bridged.cc/",
-    //       "sec-ch-ua":
-    //         '" Not;A Brand";v="99", "Google Chrome";v="91", "Chromium";v="91"',
-    //       "sec-ch-ua-mobile": "?0",
-    //       "sec-fetch-dest": "empty",
-    //       "sec-fetch-mode": "cors",
-    //       "sec-fetch-site": "same-site",
-    //       territory: "US",
-    //       "x-api-key": "UCq4xdlliA862m2SzWdvC5LNaHjskJnja8PhhMQx",
-    //     },
-    //     referrer: "https://app.cors.bridged.cc/",
-    //     referrerPolicy: "strict-origin-when-cross-origin",
-    //     body: null,
-    //     method: "GET",
-    //   })
-    //     .then(function(data) {
-    //       return data.json();
-    //     })
-    //     .then((response) => console.log(response));
+      console.log(`${latitude};${longitude}`,)
+      fetch("https://cors.bridged.cc/https://api-gate2.movieglu.com/cinemasNearby/", {
+        headers: {
+          accept: "application/json, text/plain, */*",
+          "accept-language": "en-US,en;q=0.9",
+          "api-version": "v200",
+          authorization: "Basic VFJJTF82OkNuWVNoSHBpSUZucg==",
+          client: "TRIL_6",
+          "device-datetime": "2021-07-17T16:43:47.524Z",
+          geolocation: `${latitude};${longitude}`,
+          origin: "https://app.cors.bridged.cc/",
+          "sec-ch-ua":
+            '" Not;A Brand";v="99", "Google Chrome";v="91", "Chromium";v="91"',
+          "sec-ch-ua-mobile": "?0",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-site",
+          territory: "US",
+          "x-api-key": "UCq4xdlliA862m2SzWdvC5LNaHjskJnja8PhhMQx",
+        },
+        referrer: "https://app.cors.bridged.cc/",
+        referrerPolicy: "strict-origin-when-cross-origin",
+        body: null,
+        method: "GET",
+      })
+        .then(function(data) {
+          return data.json();
+        })
+        .then(function (response){
+          console.log(typeof response);
+          console.log(response);
+          for(var i=0;i<response.cinemas.length; i++){
+            var cinemaCard = document.createElement('div');
+            var cinemaBody = document.createElement('div');
+             var cinemaName = response.cinemas[i].cinema_name;
+             console.log(cinemaName);
+             var cinemaAddress = response.cinemas[i].address;
+             console.log(cinemaAddress);
+             var nameEl = document.createElement('h3');
+             var addressEl = document.createElement('h4');
+            nameEl.innerHTML =
+            '<strong>Cinema Name:</strong> ' + cinemaName;
+            addressEl.innerHTML =
+            '<strong>Address:</strong> ' + cinemaAddress;
+             cinemaBody.append(nameEl, addressEl);
+             cinemaCard.append(cinemaBody);
+             cinemasContentEl.append(cinemaCard);
+             console.log("passed");
+           }
+        })
 
-//     })
+    })
 
 //   }
 }
@@ -175,3 +197,6 @@ function boredAPI() {
     })}
 
     boredBtn.addEventListener('click', boredAPI);
+
+
+
