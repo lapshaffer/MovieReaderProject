@@ -1,6 +1,8 @@
 var lisaKeyOMDb = "1a8f67fd"
 var lisaKeyTMDb = "daa128ddea2f71cce78720652940a3fc"
 var lisaKeyMovieGlu = "PQQlPe72DYaxrGIM8gzok6HV1n5KrZP04nSKjnWu"
+//these are our base API keys, please note that movieglu api key calls are limited to 75 calls
+//check gitignore if apikey hits cap, we have backups in there
 
 var searchBtn = document.querySelector("#search-btn");
 var searchInput = document.querySelector("#search-input");
@@ -9,6 +11,8 @@ var boredContainer = document.querySelector('#bored-result');
 var cinemasContentEl = document.querySelector('#cinema-content');
 var boredBtn = document.querySelector('#bored-btn');
 var darkbutton = document.querySelector("#theme-toggle");
+//various element class/ID selectors to tag various partts
+
 document.addEventListener('DOMContentLoaded', () => {
 
   darkbutton.addEventListener('click', () => {
@@ -21,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark')
   }
+  //adds or removes darkmode functionality.  \
+  //Also utilizes local storage for persistent theme
 
   // Calling OMDb and TMDb
   function handleSearchFormSubmit(event) {
@@ -32,13 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     searchApi(movieTitle);
   }
+//assures that the search field is actually filled, and not blank
 
   searchBtn.addEventListener('click', handleSearchFormSubmit);
+//event listener for the search button
 
+//this function calls the search to create the api call, fetch the results, then appends them to the page
   function searchApi(movieTitle) {
     var tmdbUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + lisaKeyTMDb + "&language=en-US&query=" + movieTitle + "&include_adult=false";
     var omdbUrl = "http://www.omdbapi.com/?s=" + movieTitle + "&apikey=" + lisaKeyOMDb;
-    // var 
     fetch(tmdbUrl)
       .then(function (response) {
         if (!response.ok) {
@@ -47,9 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(function (data) {
+        //creation of an area for the results of a movie search to be placed.
         console.log(data);
         resultContentEl.innerHTML = "";
         for (i = 0; i < data.results.length; i++) {
+          //this for-loop displays all that are returned
           var resultCard = document.createElement('div');
           var resultBody = document.createElement('div');
           resultCard.append(resultBody);
@@ -89,12 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
     var latitude;
     var longitude;
     navigator.geolocation.getCurrentPosition((position) => {
-
+      //gets the latitude and longitude of the user's current location to find nearby theatres
       latitude = position.coords.latitude.toFixed(3);
       longitude = position.coords.longitude.toFixed(3);
       console.log(`${position.coords.latitude};${position.coords.longitude}`)
 
       console.log(`${latitude};${longitude}`,)
+      //this fetch call was something that only freddie krueger can concoct in the dream realm
+      //required numerous headers to be sent over to actually get a proper response from the fetch, as well as other variables(?).
       fetch("https://cors.bridged.cc/https://api-gate2.movieglu.com/cinemasNearby/", {
         headers: {
           accept: "application/json, text/plain, */*",
@@ -125,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(function (response){
           console.log(typeof response);
           console.log(response);
+          //this is for the creation of new areas to display the results returned for nearby theatres then appends to the page
           for(var i=0;i<response.cinemas.length; i++){
             var cinemaCard = document.createElement('div');
             var cinemaBody = document.createElement('div');
@@ -151,6 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 })
 
+
+//our final API call, boredApi, gives you activity suggestions in case you arent a fan of any movies listed.
 function boredAPI() {
   var boredURL = "http://www.boredapi.com/api/activity/"
   
@@ -163,7 +178,7 @@ function boredAPI() {
     })
     .then(function (data) {
       console.log(data);
-
+       //this is for the creation of new areas to display the results returned for boredApi suggested activities.
       var boredResult = document.createElement('p');
       var boredActivity = data.activity;
 
@@ -171,6 +186,8 @@ function boredAPI() {
       boredContainer.append(boredResult);
     })}
 
+
+    //this is an event listener for the boredApi button and then calls the boredapi function above
     boredBtn.addEventListener('click', boredAPI);
 
 
