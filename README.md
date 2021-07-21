@@ -16,6 +16,9 @@ WHEN I click the Cinema Search button
 THEN I am provided with a list of my nearby cinemas
 
 ```
+**
+Please note that the movieglu API key has a limit of 75 calls per key, if one runs out, refer to the gitIgnore file to get another kye if one runs out
+**
 
 ## Project Requirements
 
