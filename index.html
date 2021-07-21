@@ -10,7 +10,7 @@
     <title>Movie Reader</title>
 </head>
 <body>
-    <!-- Header-esq section -->
+    <!-- Main search section -->
     <div class="row welcome center-align">
         <div class="col s12">
             <button class="btn" id="theme-toggle">Toggle dark mode</button>
@@ -19,19 +19,18 @@
         </div>
     </div>
     <div class="row">
-        <!--Nearby Cinemas Section-->
-        <div class="col s3 search-section">
+        <!--Nearby Cinemas Results-->
+        <div class="col s12 m3 search-section">
             <div class="center-align">
                 <h3>Cinema Search</h3>
                 <p class="search-section-text">Your closest local cinemas</p>
             </div>
-
-            <!--Nearby Cinemas Results-->
+            <!--Cinema Search Results-->
             <div id="cinema-content">
             </div>
         </div>
         <!--Movie Search Section-->
-        <div class="col s8">
+        <div class="col s12 m8">
             <div class="center-align search-section">
                 <h3>Movie Search</h3>
                 <p class="search-section-text">Have a movie in mind? Search the title to pull up a list of films</p>
@@ -41,25 +40,21 @@
                 <button class="btn" id="search-btn">Search!</button> <!-- submit search button -->
             </div>
             <!--Movie Search Results -->
-            <div id="result-Content"> 
+            <div class="col s12 m12" id="result-Content"> 
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <!--BoredAPI section -->
-        <div class="col s2"></div>
-        <div class="col s8 center-align search-section" id="bored-section">
+    <div class="row hide-on-small-only">
+        <div class="col s12 m4"></div>
+        <div class="col s12 m4 center-align search-section" id="bored-section">
             <h3>Not interested in watching a movie?</h3>
             <p class="search-section-text">Click this button for suggestions of something else to do!</p>
             <div id="bored-result">
-                <!--BoredAPI Results -->
             </div>
             <button class="btn" id="bored-btn">Click Me!</button>
         </div>
         <div class="col s2"></div>
     </div>
-
     <div id="footer" class="center-align">
         <h5>&#169 2021, Lisa Shaffer, Dominick Simone, Jonathan Whiting and Zack Zaleski</h5>
     </div>
