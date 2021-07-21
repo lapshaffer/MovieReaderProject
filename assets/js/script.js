@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
           var imgElement = document.createElement("img");
           var icon = data.results[i].poster_path;
           var iconurl = "https://image.tmdb.org/t/p/w200" + icon;
+          imgElement.classList.add("hide-on-small-only")
           imgElement.src = iconurl;
 
 
@@ -172,6 +173,3 @@ function boredAPI() {
     })}
 
     boredBtn.addEventListener('click', boredAPI);
-
-
-

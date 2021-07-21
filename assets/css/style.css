@@ -109,11 +109,30 @@ h1 {
   padding-top: 1px;
 }
 
+
 @media screen and (max-width: 768px) {
-    main {
-      flex-direction: column;
-    }
-    }
+  body div {
+    width: 90%;
+    flex-direction: column;
+  }
+  #result-Content h3 {
+    color: var(--black);
+    line-height: 150%;
+    font-size: 20px;
+  }
+  #search-input {
+    width: 100%;
+    background-color: var(--white);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+  }
+  .search-section {
+    background-color: var(--greyDarken4);
+    margin: 15px 50px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  }
 
 /* @media (prefers-color-scheme: dark) {
      #result-Content div {
