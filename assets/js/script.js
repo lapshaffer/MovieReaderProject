@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //our final API call, boredApi, gives you activity suggestions in case you arent a fan of any movies listed.
 function boredAPI() {
-  var boredURL = "https://www.boredapi.com/api/activity/"
+  var boredURL = "https://www.boredapi.com/api/activity/";
   
   fetch(boredURL)
     .then(function (response) {
