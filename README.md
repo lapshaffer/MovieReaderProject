@@ -133,4 +133,11 @@ This project is graded based on the following criteria:
 ---
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
 
+## Completed Project
 
+* Presentation Slide Deck: https://docs.google.com/presentation/d/1TfaKweXCGrNtljwvT5ndoYhCGeiiyK-FHb0_re8TCJo/edit?usp=sharing
+    * Any images used in this deck can be found in /assets/images
+
+* Project Repo on GitHub: https://github.com/lapshaffer/MovieReaderProject
+
+* Deployed Site: https://lapshaffer.github.io/MovieReaderProject/
