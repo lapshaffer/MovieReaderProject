@@ -12,7 +12,7 @@ WHEN I type a movie into the search box
 THEN I am directed to a page that lists the movie specs and reviews for the film
 WHEN I toggle dark mode on
 THEN my preference is stored locally
-WHEN I click the Cinema Search button
+WHEN I view the Cinema Search section
 THEN I am provided with a list of my nearby cinemas
 
 ```
