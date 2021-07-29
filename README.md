@@ -135,6 +135,8 @@ This project is graded based on the following criteria:
 
 ## Completed Project
 
+![DeployedSite](https://user-images.githubusercontent.com/81975231/127543566-8b741f68-e9b4-4917-b237-7efab34a994d.jpg)
+
 * Presentation Slide Deck: https://docs.google.com/presentation/d/1TfaKweXCGrNtljwvT5ndoYhCGeiiyK-FHb0_re8TCJo/edit?usp=sharing
     * Any images used in this deck can be found in /assets/images
 
